@@ -7,6 +7,10 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 
+/* eslint-disable */
+// @ts-nocheck
+
+
 
 const grpc = {};
 grpc.web = require('grpc-web');
@@ -134,7 +138,7 @@ proto.private.AccountServiceClient.prototype.create =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.private.User>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.private.AccountServicePromiseClient.prototype.create =
     function(request, metadata) {
@@ -143,86 +147,6 @@ proto.private.AccountServicePromiseClient.prototype.create =
       request,
       metadata || {},
       methodDescriptor_AccountService_Create);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.private.User,
- *   !proto.private.Nothing>}
- */
-const methodDescriptor_AccountService_ChangePassword = new grpc.web.MethodDescriptor(
-  '/private.AccountService/ChangePassword',
-  grpc.web.MethodType.UNARY,
-  proto.private.User,
-  proto.private.Nothing,
-  /**
-   * @param {!proto.private.User} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.private.Nothing.deserializeBinary
-);
-
-
-/**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.private.User,
- *   !proto.private.Nothing>}
- */
-const methodInfo_AccountService_ChangePassword = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.private.Nothing,
-  /**
-   * @param {!proto.private.User} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.private.Nothing.deserializeBinary
-);
-
-
-/**
- * @param {!proto.private.User} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.Error, ?proto.private.Nothing)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.private.Nothing>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.private.AccountServiceClient.prototype.changePassword =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/private.AccountService/ChangePassword',
-      request,
-      metadata || {},
-      methodDescriptor_AccountService_ChangePassword,
-      callback);
-};
-
-
-/**
- * @param {!proto.private.User} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.private.Nothing>}
- *     A native promise that resolves to the response
- */
-proto.private.AccountServicePromiseClient.prototype.changePassword =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/private.AccountService/ChangePassword',
-      request,
-      metadata || {},
-      methodDescriptor_AccountService_ChangePassword);
 };
 
 
@@ -294,7 +218,7 @@ proto.private.AccountServiceClient.prototype.authenticateByEmailAndPassword =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.private.Account>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.private.AccountServicePromiseClient.prototype.authenticateByEmailAndPassword =
     function(request, metadata) {
@@ -303,6 +227,86 @@ proto.private.AccountServicePromiseClient.prototype.authenticateByEmailAndPasswo
       request,
       metadata || {},
       methodDescriptor_AccountService_AuthenticateByEmailAndPassword);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.private.User,
+ *   !proto.private.Nothing>}
+ */
+const methodDescriptor_AccountService_ChangePassword = new grpc.web.MethodDescriptor(
+  '/private.AccountService/ChangePassword',
+  grpc.web.MethodType.UNARY,
+  proto.private.User,
+  proto.private.Nothing,
+  /**
+   * @param {!proto.private.User} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.private.Nothing.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.private.User,
+ *   !proto.private.Nothing>}
+ */
+const methodInfo_AccountService_ChangePassword = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.private.Nothing,
+  /**
+   * @param {!proto.private.User} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.private.Nothing.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.private.User} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.private.Nothing)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.private.Nothing>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.private.AccountServiceClient.prototype.changePassword =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/private.AccountService/ChangePassword',
+      request,
+      metadata || {},
+      methodDescriptor_AccountService_ChangePassword,
+      callback);
+};
+
+
+/**
+ * @param {!proto.private.User} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.private.Nothing>}
+ *     Promise that resolves to the response
+ */
+proto.private.AccountServicePromiseClient.prototype.changePassword =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/private.AccountService/ChangePassword',
+      request,
+      metadata || {},
+      methodDescriptor_AccountService_ChangePassword);
 };
 
 

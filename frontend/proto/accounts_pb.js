@@ -211,9 +211,12 @@ proto.private.User.prototype.getEmail = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.private.User} returns this
+ */
 proto.private.User.prototype.setEmail = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -226,9 +229,12 @@ proto.private.User.prototype.getPassword = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.private.User} returns this
+ */
 proto.private.User.prototype.setPassword = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -353,9 +359,12 @@ proto.private.Account.prototype.getToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.private.Account} returns this
+ */
 proto.private.Account.prototype.setToken = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
