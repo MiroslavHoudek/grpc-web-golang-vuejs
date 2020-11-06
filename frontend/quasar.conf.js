@@ -59,7 +59,8 @@ module.exports = function (ctx) {
         'Notify',
         'Loading',
         'LocalStorage',
-        'Dialog'
+        'Dialog',
+        'AppFullscreen'
       ]
     },
 
