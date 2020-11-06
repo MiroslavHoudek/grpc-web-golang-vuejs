@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 import { events } from '../constants'
 export default {
   created () {

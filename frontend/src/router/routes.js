@@ -36,30 +36,4 @@ const routes = [
   }
 ]
 
-// Requesting fullscreen mode:
-this.$q.fullscreen.request()
-  .then(() => { // v1.5.0+
-    // success!
-  })
-  .catch(err => { // v1.5.0+
-    // oh, no!!!
-  })
-
-// Exiting fullscreen mode:
-this.$q.fullscreen.exit()
-  .then(() => { // v1.5.0+
-    // success!
-  })
-  .catch(err => { // v1.5.0+
-    // oh, no!!!
-  })
-
-// Always leave this as last one
-if (process.env.MODE !== 'ssr') {
-  routes.push({
-    path: '*',
-    component: () => import('pages/Error404.vue')
-  })
-}
-
 export default routes

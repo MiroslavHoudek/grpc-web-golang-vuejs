@@ -5,7 +5,7 @@ module.exports = function (ctx) {
     }
     return JSON.stringify(value)
   }
-  const API_URL = getFromEnvOrDefault('API_URL', 'http://192.168.10.143:9000')
+  const API_URL = getFromEnvOrDefault('API_URL', 'http://localhost:9000')
   const TOKEN = getFromEnvOrDefault('TOKEN', '')
 
   return {
