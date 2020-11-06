@@ -46,14 +46,17 @@ RUN cp protoc-gen-grpc-web /sbin
 RUN protoc -I proto proto/*.proto --proto_path=./proto --go_out=plugins=grpc:./backend/proto
 RUN protoc -I proto proto/*.proto --js_out=import_style=commonjs:./frontend/proto --grpc-web_out=import_style=commonjs,mode=grpcwebtext:./frontend/proto
 
+EXPOSE 8081
+EXPOSE 9000
+
+WORKDIR /app/backend
+RUN go run main.go &
+
 WORKDIR /app/frontend
 # install project dependencies
 RUN npm i -g @quasar/cli
 RUN npm i
 
-EXPOSE 8080
-
 #RUN quasar dev
+RUN /bin/sh
 
-#CMD [ "http-server", "dist" ]
-CMD sh
