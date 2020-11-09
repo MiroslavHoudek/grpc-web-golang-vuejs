@@ -19,19 +19,18 @@ import { AppFullscreen } from 'quasar'
 // Requesting fullscreen mode:
 AppFullscreen.request()
   .then(() => { // v1.5.0+
-    // success!
+    console.log('Full screen request succeeded')
   })
   .catch(err => { // v1.5.0+
-    console.log('Inside error, fetching product line items failed', err)
-    // oh, no!!!
+    console.log('Full screen request error', err)
   })
 
 // Exiting fullscreen mode:
 AppFullscreen.exit()
   .then(() => { // v1.5.0+
-    // success!
+    console.log('Full screen exit succeeded')
   })
   .catch(err => { // v1.5.0+
     // oh, no!!!
-    console.log('Inside error, fetching product line items failed', err)
+    console.log('Full screen exit error', err)
   })

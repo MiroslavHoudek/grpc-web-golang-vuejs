@@ -33,24 +33,27 @@ ENV PYTHONUNBUFFERED=1
 # make the 'app' folder the current working directory
 WORKDIR /app
 # copy project files and folders to the current working directory (i.e. 'app' folder)
-COPY . .
-# copy both 'package.json' and 'package-lock.json' (if available)
-#   COPY package*.json ./
+COPY package-lock.json .
 
-#RUN npm install protoc-gen-grpc-web --save
-#RUN protoc-gen-grpc-web-1.2.0-linux-x86_64
-#RUN protoc-gen-grpc-web
+COPY protoc-gen-grpc-web .
 RUN chmod +x protoc-gen-grpc-web
 RUN cp protoc-gen-grpc-web /sbin
 
+COPY ./backend ./backend
+
+COPY ./proto ./proto
+RUN mkdir -p backend/proto
+RUN mkdir -p frontend/proto
 RUN protoc -I proto proto/*.proto --proto_path=./proto --go_out=plugins=grpc:./backend/proto
 RUN protoc -I proto proto/*.proto --js_out=import_style=commonjs:./frontend/proto --grpc-web_out=import_style=commonjs,mode=grpcwebtext:./frontend/proto
+
+COPY ./frontend ./frontend
 
 EXPOSE 8081
 EXPOSE 9000
 
-WORKDIR /app/backend
-RUN go run main.go &
+#WORKDIR /app/backend
+#RUN go run main.go &
 
 WORKDIR /app/frontend
 # install project dependencies

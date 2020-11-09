@@ -2,7 +2,7 @@
   <q-page class="q-pa-lg">
     <div class="row justify-between text-weight-bold text-grey-8 text-h5">
       <div class="col-auto">
-        Home
+         <todo-list />
       </div>
       <div class="col-2 text-right">
         <q-btn @click="logout" flat color="secondary" icon="logout" dense />
@@ -21,8 +21,11 @@
 
 <script>
 import { events } from '../constants'
-
+import TodoList from './TodoList'
 export default {
+  components: {
+    TodoList
+  },
   data () {
     return {
       email: '',
