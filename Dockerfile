@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk add --no-cache git make musl-dev go g++
+RUN apk add --no-cache git make musl-dev go g++ bash
 
 # Configure Go
 ENV GOROOT /usr/lib/go
@@ -47,6 +47,9 @@ RUN mkdir -p frontend/proto
 RUN protoc -I proto proto/*.proto --proto_path=./proto --go_out=plugins=grpc:./backend/proto
 RUN protoc -I proto proto/*.proto --js_out=import_style=commonjs:./frontend/proto --grpc-web_out=import_style=commonjs,mode=grpcwebtext:./frontend/proto
 
+WORKDIR /app/backend
+RUN go build
+
 COPY ./frontend ./frontend
 
 EXPOSE 8081
@@ -60,6 +63,4 @@ WORKDIR /app/frontend
 RUN npm i -g @quasar/cli
 RUN npm i
 
-#RUN quasar dev
-RUN /bin/sh
-
+ENTRYPOINT ["/bin/bash"]
