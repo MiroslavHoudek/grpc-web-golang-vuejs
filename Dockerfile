@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk add --no-cache git make musl-dev go
+RUN apk add --no-cache git make musl-dev go g++
 
 # Configure Go
 ENV GOROOT /usr/lib/go
@@ -33,7 +33,7 @@ ENV PYTHONUNBUFFERED=1
 # make the 'app' folder the current working directory
 WORKDIR /app
 # copy project files and folders to the current working directory (i.e. 'app' folder)
-COPY package-lock.json .
+#COPY package-lock.json .
 
 COPY protoc-gen-grpc-web .
 RUN chmod +x protoc-gen-grpc-web
