@@ -30,19 +30,25 @@ COPY protoc-gen-grpc-web .
 RUN chmod +x protoc-gen-grpc-web
 RUN cp protoc-gen-grpc-web /sbin
 
+RUN mkdir -p /frontend
+COPY ./frontend/proto ./frontend/proto
+
 COPY ./proto ./proto
 RUN mkdir -p frontend/proto
 RUN protoc -I proto proto/*.proto --js_out=import_style=commonjs:./frontend/proto --grpc-web_out=import_style=commonjs,mode=grpcwebtext:./frontend/proto
 
-COPY ./frontend ./frontend
+COPY ./frontend/*.js /app/frontend/
+COPY ./frontend/*.json /app/frontend/
+
+WORKDIR /app/frontend
+
+RUN npm i
 
 EXPOSE 8081
 EXPOSE 9000
 
-WORKDIR /app/frontend
-# install project dependencies
-RUN npm i -g @quasar/cli
-RUN npm i
+#COPY ./frontend/src ./src
 
-#ENTRYPOINT ["go run main.go"]
+RUN npm i -g @quasar/cli
+
 ENTRYPOINT ["/bin/bash"]

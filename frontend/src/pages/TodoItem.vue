@@ -49,14 +49,14 @@
       </q-popover>
     </q-item-side>
   </q-item>
-  <!--<li>
+  <!-- <li>
     <input type="checkbox" @change="toggleTask({ task: item })">
     <label v-show="!editing" @dblclick="inEditMode">
       {{ item.text }}
     </label>
     <input type="text" v-item-focus="editing" :value="item.text" v-show="editing" @blur="doneEditing" @keyup.enter="doneEditing" @keyup.esc="cancelEditing">
 
-  </li>-->
+  </li> -->
 </template>
 
 <script>

@@ -119,19 +119,18 @@ export default {
     ...mapGetters('todoList', [
       'incompleteTasks',
       'completedTasks'
-    ])
-    // ]),
-    // filteredList() {
-    //   if (this.selectedFilter === 'all') {
-    //     return this.todoList
-    //   }
-    //   else if (this.selectedFilter === 'todo') {
-    //     return this.incompleteTasks
-    //   }
-    //   else if (this.selectedFilter === 'completed') {
-    //     return this.completedTasks
-    //   }
-    // }
+    ]),
+    filteredList () {
+      if (this.selectedFilter === 'all') {
+        return this.todoList
+      } else if (this.selectedFilter === 'todo') {
+        return this.incompleteTasks
+      } else if (this.selectedFilter === 'completed') {
+        return this.completedTasks
+      } else {
+        return this.todoList
+      }
+    }
   },
   methods: {
     ...mapActions('todoList', [
