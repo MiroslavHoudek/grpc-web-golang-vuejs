@@ -53,10 +53,10 @@
 <script>
 import {
   QCard,
-  // QCardTitle,
   // QCardMain,
+  // QCardTitle,
   // QCardSeparator,
-  // QCardActions,
+  QCardActions,
   // QCardMedia,
   QBtn,
   QInput,
@@ -76,10 +76,10 @@ import { mapState, mapGetters, mapActions } from 'vuex'
 export default {
   components: {
     QCard,
-    // QCardTitle,
     // QCardMain,
+    // QCardTitle,
     // QCardSeparator,
-    // QCardActions,
+    QCardActions,
     // QCardMedia,
     QBtn,
     QInput,
