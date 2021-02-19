@@ -1,12 +1,14 @@
 syntax = "proto3";
 
+import "google/protobuf/empty.proto";
+
 package private;
 option go_package = ".;proto";
 
 service AccountService {
     rpc Create(User) returns (User) {}
     rpc AuthenticateByEmailAndPassword(User) returns (Account) {}
-    rpc ChangePassword(User) returns (Nothing) {}
+    rpc ChangePassword(User) returns (google.protobuf.Empty) {}
 }
 
 message User {
@@ -17,5 +19,3 @@ message User {
 message Account {
     string token = 1;
 }
-
-message Nothing {}

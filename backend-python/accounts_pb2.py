@@ -11,6 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -19,8 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\007.;proto',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0e\x61\x63\x63ounts.proto\x12\x07private\"\'\n\x04User\x12\r\n\x05\x65mail\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"\x18\n\x07\x41\x63\x63ount\x12\r\n\x05token\x18\x01 \x01(\t\"\t\n\x07Nothing2\xb4\x01\n\x0e\x41\x63\x63ountService\x12(\n\x06\x43reate\x12\r.private.User\x1a\r.private.User\"\x00\x12\x43\n\x1e\x41uthenticateByEmailAndPassword\x12\r.private.User\x1a\x10.private.Account\"\x00\x12\x33\n\x0e\x43hangePassword\x12\r.private.User\x1a\x10.private.Nothing\"\x00\x42\tZ\x07.;protob\x06proto3'
-)
+  serialized_pb=b'\n\x0e\x61\x63\x63ounts.proto\x12\x07private\x1a\x1bgoogle/protobuf/empty.proto\"\'\n\x04User\x12\r\n\x05\x65mail\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"\x18\n\x07\x41\x63\x63ount\x12\r\n\x05token\x18\x01 \x01(\t2\xba\x01\n\x0e\x41\x63\x63ountService\x12(\n\x06\x43reate\x12\r.private.User\x1a\r.private.User\"\x00\x12\x43\n\x1e\x41uthenticateByEmailAndPassword\x12\r.private.User\x1a\x10.private.Account\"\x00\x12\x39\n\x0e\x43hangePassword\x12\r.private.User\x1a\x16.google.protobuf.Empty\"\x00\x42\tZ\x07.;protob\x06proto3'
+  ,
+  dependencies=[google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
 
 
@@ -59,8 +61,8 @@ _USER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=27,
-  serialized_end=66,
+  serialized_start=56,
+  serialized_end=95,
 )
 
 
@@ -91,38 +93,12 @@ _ACCOUNT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=68,
-  serialized_end=92,
-)
-
-
-_NOTHING = _descriptor.Descriptor(
-  name='Nothing',
-  full_name='private.Nothing',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=94,
-  serialized_end=103,
+  serialized_start=97,
+  serialized_end=121,
 )
 
 DESCRIPTOR.message_types_by_name['User'] = _USER
 DESCRIPTOR.message_types_by_name['Account'] = _ACCOUNT
-DESCRIPTOR.message_types_by_name['Nothing'] = _NOTHING
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 User = _reflection.GeneratedProtocolMessageType('User', (_message.Message,), {
@@ -139,13 +115,6 @@ Account = _reflection.GeneratedProtocolMessageType('Account', (_message.Message,
   })
 _sym_db.RegisterMessage(Account)
 
-Nothing = _reflection.GeneratedProtocolMessageType('Nothing', (_message.Message,), {
-  'DESCRIPTOR' : _NOTHING,
-  '__module__' : 'accounts_pb2'
-  # @@protoc_insertion_point(class_scope:private.Nothing)
-  })
-_sym_db.RegisterMessage(Nothing)
-
 
 DESCRIPTOR._options = None
 
@@ -156,8 +125,8 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=106,
-  serialized_end=286,
+  serialized_start=124,
+  serialized_end=310,
   methods=[
   _descriptor.MethodDescriptor(
     name='Create',
@@ -185,7 +154,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
     index=2,
     containing_service=None,
     input_type=_USER,
-    output_type=_NOTHING,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

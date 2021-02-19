@@ -3,6 +3,7 @@
 import grpc
 
 import accounts_pb2 as accounts__pb2
+from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
 class AccountServiceStub(object):
@@ -27,7 +28,7 @@ class AccountServiceStub(object):
         self.ChangePassword = channel.unary_unary(
                 '/private.AccountService/ChangePassword',
                 request_serializer=accounts__pb2.User.SerializeToString,
-                response_deserializer=accounts__pb2.Nothing.FromString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
 
 
@@ -68,7 +69,7 @@ def add_AccountServiceServicer_to_server(servicer, server):
             'ChangePassword': grpc.unary_unary_rpc_method_handler(
                     servicer.ChangePassword,
                     request_deserializer=accounts__pb2.User.FromString,
-                    response_serializer=accounts__pb2.Nothing.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -127,6 +128,6 @@ class AccountService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/private.AccountService/ChangePassword',
             accounts__pb2.User.SerializeToString,
-            accounts__pb2.Nothing.FromString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -3,23 +3,14 @@ FROM alpine:latest
 RUN apk add --no-cache git bash g++ linux-headers curl wget mc python3 py3-pip python3-dev rust cargo libffi-dev libressl-dev
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
-#RUN go get -u github.com/golang/protobuf/protoc-gen-go
 RUN python3 -m pip install --upgrade pip
 RUN python3 -m pip install grpcio
 RUN python3 -m pip install grpcio-tools
 RUN python3 -m pip install sonora
 RUN python3 -m pip install daphne
 
-#FROM namely/protoc-all
-#RUN apk add protobuf
-
 WORKDIR /app/backend
-COPY ./envoy ./envoy
 COPY ./proto ./proto
-#RUN python -m grpc_tools.protoc -Iproto --python_out=. --grpc_python_out=. proto/accounts.proto
-
-# copy project files and folders to the current working directory (i.e. 'app' folder)
-#COPY ./backend-python .
 
 WORKDIR /app/backend/src
 

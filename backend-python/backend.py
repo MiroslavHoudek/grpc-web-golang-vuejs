@@ -6,6 +6,8 @@ import asyncio
 
 import accounts_pb2
 import accounts_pb2_grpc
+import todo_pb2
+import todo_pb2_grpc
 
 class AccountServiceServicer(accounts_pb2_grpc.AccountServiceServicer):
     """Provides methods that implement functionality of account server."""
@@ -35,10 +37,34 @@ class AccountServiceServicer(accounts_pb2_grpc.AccountServiceServicer):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+class TodoServiceServicer(todo_pb2_grpc.TodoServiceServicer):
+    """Missing associated documentation comment in .proto file."""
+
+    def Create(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Delete(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListTodos(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     accounts_pb2_grpc.add_AccountServiceServicer_to_server(
         AccountServiceServicer(), server)
+    todo_pb2_grpc.add_TodoServiceServicer_to_server(
+        TodoServiceServicer, server)
+
     server.add_insecure_port('[::]:8081')
     server.start()
     print("Server started")
