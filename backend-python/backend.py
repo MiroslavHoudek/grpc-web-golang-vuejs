@@ -42,18 +42,21 @@ class TodoServiceServicer(todo_pb2_grpc.TodoServiceServicer):
 
     def Create(self, request, context):
         """Missing associated documentation comment in .proto file."""
+        print("Create todo called")
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Delete(self, request, context):
         """Missing associated documentation comment in .proto file."""
+        print("Delete todo called")
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListTodos(self, request, context):
         """Missing associated documentation comment in .proto file."""
+        print("List todo called")
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')

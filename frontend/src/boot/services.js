@@ -2,6 +2,8 @@ import bus from '../libs/bus'
 import { events, TOKEN_KEY } from '../constants'
 import { Account, Nothing, User } from '../../proto/accounts_pb'
 import { AccountServicePromiseClient } from '../../proto/accounts_grpc_web_pb'
+import { TodoItem, TodoList } from '../../proto/todo_pb'
+import { TodoServicePromiseClient } from '../../proto/todo_grpc_web_pb'
 
 const getMetadata = () => {
   return {
@@ -18,7 +20,10 @@ const deps = {
     Account,
     Nothing,
     User,
-    AccountClient: AccountServicePromiseClient
+    AccountClient: AccountServicePromiseClient,
+    TodoItem,
+    TodoList,
+    TodoClient: TodoServicePromiseClient
   }
 }
 

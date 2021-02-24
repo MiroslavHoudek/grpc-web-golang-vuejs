@@ -26,7 +26,7 @@ module.exports = function (ctx) {
     framework: {
       iconSet: 'fontawesome-v5',
       lang: 'en-us',
-      all: false,
+      all: true,
 
       components: [
         'QLayout',

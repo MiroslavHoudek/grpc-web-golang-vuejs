@@ -1,12 +1,11 @@
 <template>
   <q-card inline style="width: 350px; max-width: 90vw">
-    <q-card-media>
-      <img src="/statics/img/todo.jpg">
-    </q-card-media>
-    <q-card-title>
+    <q-card-section>
+      <!-- <img src="/statics/img/todo.jpg"> -->
+      <q-icon name="cloud" />
       <q-list no-border>
         <q-item>
-          <q-item-side>
+          <q-item-section>
             <q-btn
               round
               small
@@ -15,19 +14,19 @@
               :disabled="!newTask.trim()"
               @click="addNewTask"
             />
-          </q-item-side>
-          <q-item-main>
+          </q-item-section>
+          <q-item-label>
             <q-input
               type="text"
               v-model='newTask'
               placeholder="Add a new task"
               @keyup.enter="addNewTask"
             />
-          </q-item-main>
+          </q-item-label>
         </q-item>
       </q-list>
-    </q-card-title>
-    <q-card-main>
+    </q-card-section>
+    <q-card-section>
       <div>
         <q-list inset-separator no-border>
           <todo-item
@@ -38,8 +37,8 @@
           </todo-item>
         </q-list>
       </div>
-    </q-card-main>
-    <q-card-separator />
+    </q-card-section>
+    <q-separator />
     <q-card-actions align="center">
       <q-select
         radio
@@ -53,20 +52,15 @@
 <script>
 import {
   QCard,
-  // QCardMain,
-  // QCardTitle,
-  // QCardSeparator,
   QCardActions,
-  // QCardMedia,
+  QCardSection,
   QBtn,
   QInput,
   QList,
   QSelect,
-  // QItemSeparator,
-  QItem
-  // QItemTile,
-  // QItemMain,
-  // QItemSide
+  QItem,
+  QItemLabel,
+  QItemSection
 } from 'quasar'
 
 import TodoItem from './TodoItem'
@@ -76,19 +70,14 @@ import { mapState, mapGetters, mapActions } from 'vuex'
 export default {
   components: {
     QCard,
-    // QCardMain,
-    // QCardTitle,
-    // QCardSeparator,
     QCardActions,
-    // QCardMedia,
+    QCardSection,
     QBtn,
     QInput,
     QList,
-    // QItemSeparator,
     QItem,
-    // QItemTile,
-    // QItemMain,
-    // QItemSide,
+    QItemLabel,
+    QItemSection,
     QSelect,
     TodoItem
   },
@@ -146,5 +135,6 @@ export default {
   }
 }
 </script>
+
 <style lang="stylus">
 </style>

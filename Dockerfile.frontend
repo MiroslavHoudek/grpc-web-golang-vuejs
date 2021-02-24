@@ -8,7 +8,7 @@ RUN apk add --update nodejs npm
 #RUN npm install -g http-server
 
 #FROM namely/protoc-all
-RUN apk add protobuf
+RUN apk add protobuf protobuf-dev libprotobuf
 RUN apk add curl wget
 
 RUN /sbin/apk add --no-cache python2 && \
@@ -47,8 +47,10 @@ RUN npm i
 EXPOSE 8081
 EXPOSE 9000
 
-#COPY ./frontend/src ./src
-
 RUN npm i -g @quasar/cli
+
+#COPY ./proto ./proto
+COPY ./frontend/make_proto_js.sh ./
+RUN chmod +x ./make_proto_js.sh
 
 ENTRYPOINT ["/bin/bash"]

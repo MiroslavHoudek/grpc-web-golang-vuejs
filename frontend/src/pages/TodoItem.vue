@@ -3,7 +3,7 @@
     tag="label"
     @click.prevent
   >
-    <q-item-side>
+    <q-item-section>
       <q-checkbox
         :value="item.done"
         checked-icon="done"
@@ -11,9 +11,9 @@
         color="green"
         @change="toggleTask({ task: item })"
       />
-    </q-item-side>
-    <q-item-main>
-      <q-item-tile
+    </q-item-section>
+    <q-item-label>
+      <q-item-section
         label
         v-show="!editing"
         style="cursor: text"
@@ -22,7 +22,7 @@
         @click="inEditMode"
       >
         {{ item.text }}
-      </q-item-tile>
+      </q-item-section>
       <q-input
         ref="taskInput"
         :value="item.text"
@@ -31,23 +31,23 @@
         @keyup.enter="doneEditing"
         @keyup.esc="cancelEditing"
       />
-    </q-item-main>
-    <q-item-side right icon="more_vert">
-      <q-popover ref="popover">
+    </q-item-label>
+    <q-item-section right icon="more_vert">
+      <q-menu ref="popover">
         <q-list link>
           <q-item
             @click="inEditMode(); $refs.popover.close()"
           >
-            <q-item-main label="Edit" />
+            <q-item-label label="Edit" />
           </q-item>
           <q-item
             @click="deleteTask({ task: item }); $refs.popover.close()"
           >
-            <q-item-main label="Delete" />
+            <q-item-label label="Delete" />
           </q-item>
         </q-list>
-      </q-popover>
-    </q-item-side>
+      </q-menu>
+    </q-item-section>
   </q-item>
   <!-- <li>
     <input type="checkbox" @change="toggleTask({ task: item })">
@@ -66,12 +66,15 @@ import {
   QInput,
   // QField,
   QItem,
+  QItemLabel,
   // QItemTile,
   // QItemMain,
   // QItemSide,
+  QItemSection,
   TouchSwipe,
   // QPopover,
-  QList
+  QList,
+  QMenu
 } from 'quasar'
 import { mapActions } from 'vuex'
 
@@ -82,11 +85,14 @@ export default {
     QInput,
     // QField,
     QItem,
+    QItemLabel,
+    QItemSection,
     // QItemTile,
     // QItemMain,
     // QItemSide,
     // QPopover,
-    QList
+    QList,
+    QMenu
   },
   props: ['item'],
   data () {
