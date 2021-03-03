@@ -50,7 +50,7 @@ EXPOSE 9000
 RUN npm i -g @quasar/cli
 
 #COPY ./proto ./proto
-COPY ./frontend/make_proto_js.sh ./
-RUN chmod +x ./make_proto_js.sh
+#COPY ./frontend/make_proto_js.sh ./
+#RUN chmod +x ./make_proto_js.sh
 
 ENTRYPOINT ["/bin/bash"]

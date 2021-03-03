@@ -50,6 +50,12 @@
 </template>
 
 <script>
+
+async function getTodoList () {
+  const req = new this.proto.Empty()
+  return this.client.getTodoList(req, {})
+}
+
 import {
   QCard,
   QCardActions,
@@ -125,7 +131,11 @@ export default {
     ...mapActions('todoList', [
       'addTask'
     ]),
+    /* eslint no-unused-vars: ["error", { "vars": "local" }] */
     addNewTask (e) {
+      // this.state = getTodoList()
+      const res = getTodoList()
+
       let text = this.newTask.trim()
       if (text) {
         this.addTask(text)

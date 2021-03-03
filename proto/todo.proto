@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package private;
+option go_package = ".;proto";
+
+service TodoService {
+    rpc Create(TodoItem) returns (Result) {}
+    rpc Delete(TodoItem) returns (Result) {}
+    rpc ListTodos(google.protobuf.Empty) returns (TodoList) {}
+}
+
+message Result {
+    int32   result_code = 1;
+    string  result_summary = 2;
+}
+
+message TodoItem {
+    bool    done = 1;
+    int32   item_id = 2;
+    string  item_text = 3;
+}
+
+message TodoList {
+    repeated TodoItem todoitem = 1;
+}
