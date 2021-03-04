@@ -131,7 +131,6 @@ export default {
     ...mapActions('todoList', [
       'addTask'
     ]),
-    /* eslint no-unused-vars: ["error", { "vars": "local" }] */
     addNewTask (e) {
       // this.state = getTodoList()
       const res = getTodoList()

@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk add --no-cache git make musl-dev g++ bash
+RUN apk add --no-cache git make musl-dev g++ bash mc
 
 RUN apk add --update nodejs npm
 
